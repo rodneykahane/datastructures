@@ -8,7 +8,7 @@ public class DoublyLinkedList {
 		this.first = null;
 		this.last = null;
 	}
-	
+
 	public void displayList() {
 		System.out.println("Doubly linked List (first --> last) ");
 		Node current = first;
@@ -77,7 +77,6 @@ public class DoublyLinkedList {
 		return temp;
 	}
 
-
 	//lecture 16
 	public boolean insertAfter(int key, int data) {
 		Node current = first;
@@ -103,7 +102,6 @@ public class DoublyLinkedList {
 		current.next = newNode;
 
 		return true;
-
 	}
 
 	//assume non-empty list
@@ -114,20 +112,22 @@ public class DoublyLinkedList {
 		while(current.data != key) {
 			current = current.next;
 			if(current==null) {
-				last.previous.next=null;
+				System.out.println("key not found");
+				System.exit(1);				
 			}
 		}		
 
 		if(current==last) {
-			first = null;
-		} else if (current.data==key){
-			current.next.previous = current.previous;
+			deleteLast();
+		} else if (current==first){ 
+			deleteFirst();
+		}else if (current.data==key){
 			current.previous.next = current.next;
+			current.next.previous = current.previous;
+
 		} 
 
 		return current;
-
 	}//end deleteKey
 	
-
 }//end class

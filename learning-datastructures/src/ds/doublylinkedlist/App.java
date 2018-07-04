@@ -11,13 +11,12 @@ public class App {
 		myList.insertFirst(88);
 		myList.insertLast(9999999);
 		
+				
 		myList.displayList();
 		
-		
-		
-		myList.deleteKey(100);
-		myList.displayList();
-		
+				
+		myList.deleteKey(999999);
+		myList.displayList();		
 
 	}
 
