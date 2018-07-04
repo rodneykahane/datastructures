@@ -106,18 +106,19 @@ public class DoublyLinkedList {
 
 	//assume non-empty list
 	public Node deleteKey(int key) {
-		Node current = new Node();
-
-		current = first;
+		Node current = first;
+		
 		while(current.data != key) {
 			current = current.next;
 			if(current==null) {
 				System.out.println("key not found");
-				System.exit(1);				
+				//System.exit(1);//my answer
+				return null;  //better solution
 			}
 		}		
 
-		if(current==last) {
+		//my solution
+/*		if(current==last) {
 			deleteLast();
 		} else if (current==first){ 
 			deleteFirst();
@@ -125,6 +126,20 @@ public class DoublyLinkedList {
 			current.previous.next = current.next;
 			current.next.previous = current.previous;
 		} 
+*/
+		
+		//lecture solution
+		if(current==first) {
+			first = current.next;		
+		} else {
+			current.previous.next = current.next;			
+		} 
+		
+		if(current==last) {
+			last = current.previous;
+		} else {
+			current.next.previous = current.previous;
+		}
 
 		return current;
 	}//end deleteKey
