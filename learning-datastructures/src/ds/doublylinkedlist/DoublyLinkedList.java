@@ -124,7 +124,6 @@ public class DoublyLinkedList {
 		}else if (current.data==key){
 			current.previous.next = current.next;
 			current.next.previous = current.previous;
-
 		} 
 
 		return current;
