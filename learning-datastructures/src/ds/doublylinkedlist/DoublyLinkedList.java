@@ -8,7 +8,16 @@ public class DoublyLinkedList {
 		this.first = null;
 		this.last = null;
 	}
-
+	
+	public void displayList() {
+		System.out.println("Doubly linked List (first --> last) ");
+		Node current = first;
+		while(current != null) {
+			current.displayNode();
+			current = current.next;
+		}
+		System.out.println("");
+	}
 
 	public boolean isEmpty() {
 		return (first==null);
@@ -111,13 +120,14 @@ public class DoublyLinkedList {
 
 		if(current==last) {
 			first = null;
-		} else {
-
-
-
-
+		} else if (current.data==key){
+			current.next.previous = current.previous;
+			current.previous.next = current.next;
 		} 
 
+		return current;
 
-	}
-}
+	}//end deleteKey
+	
+
+}//end class
